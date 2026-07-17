@@ -435,26 +435,6 @@
 	<section class="auth-screen">
 		<a class="brand auth-brand" href="/">STREAMLY</a>
 		<div class="auth-modal">
-			<!-- Left branding panel -->
-			<div class="auth-panel">
-				<div class="auth-panel-inner">
-					<div class="panel-badge">MEMBER ACCESS</div>
-					<h2 class="panel-title">
-						Unlimited<br />stories<br /><em>await.</em>
-					</h2>
-					<p class="panel-sub">
-						Stream thousands of movies &amp; shows in HD, 4K and
-						beyond.
-					</p>
-					<ul class="panel-perks">
-						<li><span class="perk-dot"></span>No ads, ever</li>
-						<li><span class="perk-dot"></span>Cancel anytime</li>
-						<li>
-							<span class="perk-dot"></span>Watch on any device
-						</li>
-					</ul>
-				</div>
-			</div>
 			<!-- Right form panel -->
 			<div class="auth-form-panel">
 				{#if showForgotPassword}
@@ -1221,148 +1201,34 @@
 		justify-content: center;
 		padding: 24px;
 		background:
-			linear-gradient(135deg, #060810 0%, #0d0f17 50%, #060810 100%),
-			url("/images/auth-cityscape.png") center/cover;
-		background-blend-mode: multiply;
+			radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%),
+			url("https://image.tmdb.org/t/p/original/r57L2UBLPKcHdZQYg8tagv9XqK2.jpg") center/cover;
 		position: relative;
-	}
-	.auth-screen::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-				ellipse at 20% 50%,
-				rgba(229, 9, 20, 0.08) 0%,
-				transparent 60%
-			),
-			radial-gradient(
-				ellipse at 80% 20%,
-				rgba(100, 50, 200, 0.05) 0%,
-				transparent 55%
-			);
-		pointer-events: none;
 	}
 	.auth-brand {
 		position: absolute;
-		top: 28px;
-		left: 36px;
+		top: 32px;
+		left: clamp(24px, 5vw, 48px);
 		z-index: 10;
+		font-size: 2.2rem;
+		text-shadow: 0 2px 15px rgba(0,0,0,0.8);
 	}
 	.auth-modal {
 		position: relative;
 		display: flex;
-		width: min(900px, 100%);
-		min-height: 520px;
-		border-radius: 20px;
-		overflow: hidden;
-		box-shadow:
-			0 40px 100px rgba(0, 0, 0, 0.7),
-			0 0 0 1px rgba(255, 255, 255, 0.07);
-	}
-	/* Left branding panel */
-	.auth-panel {
-		flex: 0 0 340px;
-		background: linear-gradient(
-			155deg,
-			#1a0406 0%,
-			#3d0810 35%,
-			#1a0406 70%,
-			#0a0c14 100%
-		);
-		position: relative;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-	}
-	.auth-panel::before {
-		content: "";
-		position: absolute;
-		width: 500px;
-		height: 500px;
-		border-radius: 50%;
-		border: 1px solid rgba(229, 9, 20, 0.12);
-		top: -120px;
-		left: -180px;
-	}
-	.auth-panel::after {
-		content: "";
-		position: absolute;
-		width: 380px;
-		height: 380px;
-		border-radius: 50%;
-		border: 1px solid rgba(229, 9, 20, 0.08);
-		bottom: -100px;
-		right: -140px;
-	}
-	.auth-panel-inner {
-		position: relative;
-		z-index: 1;
-		padding: 44px 36px;
-	}
-	.panel-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		color: #e50914;
-		font-size: 0.6rem;
-		font-weight: 800;
-		letter-spacing: 2.5px;
-		margin-bottom: 28px;
-	}
-	.panel-badge::before {
-		content: "";
-		width: 20px;
-		height: 1px;
-		background: #e50914;
-	}
-	.panel-title {
-		font-size: clamp(1.9rem, 2.8vw, 2.55rem);
-		font-weight: 800;
-		letter-spacing: -2px;
-		line-height: 0.9;
-		margin: 0 0 18px;
-		color: #fff;
-	}
-	.panel-title em {
-		font-style: normal;
-		color: #e50914;
-	}
-	.panel-sub {
-		color: #8a90a0;
-		font-size: 0.8rem;
-		line-height: 1.65;
-		margin: 0 0 28px;
-		max-width: 220px;
-	}
-	.panel-perks {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
 		flex-direction: column;
-		gap: 11px;
-	}
-	.panel-perks li {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		color: #b0b8c8;
-		font-size: 0.77rem;
-		font-weight: 500;
-	}
-	.perk-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: #e50914;
-		flex-shrink: 0;
-		box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+		width: min(450px, 100%);
+		border-radius: 16px;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.75);
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
+		box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
 	}
 	/* Right form panel */
 	.auth-form-panel {
 		flex: 1;
-		background: #0e1018;
-		padding: 40px 36px 32px;
+		padding: 48px 40px 40px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -1391,28 +1257,28 @@
 	.auth-tabs {
 		display: flex;
 		gap: 4px;
-		background: rgba(255, 255, 255, 0.05);
+		background: rgba(255, 255, 255, 0.08);
 		border-radius: 10px;
 		padding: 4px;
-		margin-bottom: 20px;
-		border: 1px solid rgba(255, 255, 255, 0.07);
+		margin-bottom: 24px;
+		border: 1px solid rgba(255, 255, 255, 0.05);
 	}
 	.auth-tab {
 		flex: 1;
-		padding: 9px;
+		padding: 10px;
 		border: 0;
-		border-radius: 7px;
+		border-radius: 8px;
 		background: transparent;
-		color: #6e7585;
-		font-size: 0.8rem;
+		color: #8a90a0;
+		font-size: 0.85rem;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.2s;
 	}
 	.auth-tab.active {
-		background: rgba(255, 255, 255, 0.1);
-		color: #f0f2f5;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		background: rgba(255, 255, 255, 0.12);
+		color: #fff;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 	}
 	/* Form fields */
 	.auth-form {
@@ -1441,11 +1307,11 @@
 	.auth-form input {
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 9px;
-		padding: 11px 14px;
+		padding: 13px 16px;
 		color: #f0f2f5;
-		background: rgba(255, 255, 255, 0.06);
+		background: rgba(255, 255, 255, 0.08);
 		outline: none;
-		font-size: 0.88rem;
+		font-size: 0.95rem;
 		transition:
 			border-color 0.2s,
 			background 0.2s,
@@ -1455,31 +1321,25 @@
 		color: rgba(255, 255, 255, 0.2);
 	}
 	.auth-form input:focus {
-		border-color: rgba(229, 9, 20, 0.5);
-		background: rgba(255, 255, 255, 0.09);
-		box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.08);
+		border-color: rgba(229, 9, 20, 0.6);
+		background: rgba(255, 255, 255, 0.12);
+		box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
 	}
 	.btn-primary {
 		border: 0;
-		border-radius: 9px;
-		padding: 12px;
+		border-radius: 8px;
+		padding: 14px;
 		color: #fff;
 		background: #e50914;
 		cursor: pointer;
 		font-weight: 700;
-		font-size: 0.88rem;
-		letter-spacing: 0.2px;
-		transition:
-			transform 0.18s,
-			background 0.18s,
-			box-shadow 0.18s;
-		box-shadow: 0 4px 18px rgba(229, 9, 20, 0.35);
-		margin-top: 4px;
+		font-size: 0.95rem;
+		letter-spacing: 0.5px;
+		transition: all 0.2s ease;
+		margin-top: 12px;
 	}
 	.btn-primary:hover {
-		background: #f6121d;
-		transform: translateY(-1px);
-		box-shadow: 0 6px 24px rgba(229, 9, 20, 0.45);
+		background: #c11119;
 	}
 	.btn-ghost {
 		border: 1px solid rgba(255, 255, 255, 0.1);
