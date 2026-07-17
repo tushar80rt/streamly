@@ -11,7 +11,7 @@
 		{ id: "netflix", name: "Netflix", color: "#e50914", logoImg: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
 		{ id: "prime", name: "Prime Video", color: "#00a8e1", logoImg: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" },
 		{ id: "hotstar", name: "Hotstar", color: "#1f80e0", logoImg: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg" },
-		{ id: "jio", name: "JioCinema", color: "#6c3bd5", logoImg: "https://upload.wikimedia.org/wikipedia/commons/a/ac/JioCinema_logo.svg" },
+		{ id: "jio", name: "JioCinema", color: "#6c3bd5", logo: "📺" },
 		{ id: "apple", name: "Apple TV+", color: "#888", logoImg: "https://upload.wikimedia.org/wikipedia/commons/2/28/Apple_TV_Plus_Logo.svg" },
 	];
 	const OTT_WATCH_URLS = {
@@ -683,7 +683,7 @@
 							onclick={openSearch}>⌕</button
 						>
 					{/if}
-					<button class="sign-in" type="button" onclick={signOut}
+					<button class="sign-out" type="button" onclick={signOut}
 						>Sign Out</button
 					>
 				</div>
@@ -1619,23 +1619,26 @@
 		padding: 8px 12px;
 		font-size: 0.8rem;
 	}
-	.sign-in {
-		background: rgba(0, 0, 0, 0.4);
+	.sign-out {
+		background: rgba(255, 255, 255, 0.1);
 		color: #e5e5e5;
 		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 4px;
-		text-decoration: none;
-		padding: 8px 20px;
-		font-size: 0.9rem;
-		font-weight: 500;
+		padding: 6px 14px;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 600;
 		cursor: pointer;
-		transition: all 0.2s;
+		transition: all 0.2s ease;
+		backdrop-filter: blur(8px);
 	}
-	.sign-in:hover {
+	.sign-out:hover {
+		background: #e50914;
+		border-color: #e50914;
 		color: #fff;
-		border-color: #fff;
-		background: rgba(0, 0, 0, 0.8);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
 	}
+
 	.hero-content {
 		margin: 135px 0 0 clamp(24px, 11vw, 172px);
 		max-width: 700px;
@@ -1748,7 +1751,6 @@
 		margin: 0;
 		display: block;
 		width: 100%;
-		height: 100%;
 		cursor: pointer;
 		text-align: left;
 		-webkit-appearance: none;
