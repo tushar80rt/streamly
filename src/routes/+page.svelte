@@ -8,11 +8,11 @@
 
 	const OTT_PLATFORMS = [
 		{ id: "all", name: "All Platforms", color: "#e50914", logo: "🎬" },
-		{ id: "netflix", name: "Netflix", color: "#e50914", logo: "N" },
-		{ id: "prime", name: "Prime Video", color: "#00a8e1", logo: "P" },
-		{ id: "hotstar", name: "Hotstar", color: "#1f80e0", logo: "H" },
-		{ id: "jio", name: "JioCinema", color: "#6c3bd5", logo: "J" },
-		{ id: "apple", name: "Apple TV+", color: "#888", logo: "🍎" },
+		{ id: "netflix", name: "Netflix", color: "#e50914", logoImg: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+		{ id: "prime", name: "Prime Video", color: "#00a8e1", logoImg: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" },
+		{ id: "hotstar", name: "Hotstar", color: "#1f80e0", logoImg: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg" },
+		{ id: "jio", name: "JioCinema", color: "#6c3bd5", logoImg: "https://upload.wikimedia.org/wikipedia/commons/a/ac/JioCinema_logo.svg" },
+		{ id: "apple", name: "Apple TV+", color: "#888", logoImg: "https://upload.wikimedia.org/wikipedia/commons/2/28/Apple_TV_Plus_Logo.svg" },
 	];
 	const OTT_WATCH_URLS = {
 		netflix: (t) =>
@@ -701,8 +701,12 @@
 								type="button"
 								onclick={() => (activeOTT = plat.id)}
 							>
-								<span class="ott-logo">{plat.logo}</span
-								>{plat.name}
+								{#if plat.logoImg}
+									<img src={plat.logoImg} alt={plat.name} class="ott-logo-img"/>
+								{:else}
+									<span class="ott-logo">{plat.logo}</span>
+									{plat.name}
+								{/if}
 							</button>
 						{/each}
 					</div>
@@ -763,8 +767,13 @@
 													)}
 													target="_blank"
 													rel="noreferrer"
-													>{plat.logo} {plat.name}</a
-												>
+													>
+													{#if plat.logoImg}
+														<img src={plat.logoImg} alt={plat.name} class="plat-badge-img"/>
+													{:else}
+														{plat.logo} {plat.name}
+													{/if}
+												</a>
 											{/each}
 										</div>
 									</div>
@@ -1149,10 +1158,12 @@
 										target="_blank"
 										rel="noreferrer"
 									>
-										<span class="pm-plat-logo"
-											>{plat.logo}</span
-										>
-										{plat.name}
+										{#if plat.logoImg}
+											<img src={plat.logoImg} alt={plat.name} class="pm-plat-img"/>
+										{:else}
+											<span class="pm-plat-logo">{plat.logo}</span>
+											{plat.name}
+										{/if}
 									</a>
 								{/each}
 								{#if playingMovie.trackViewUrl}
@@ -1466,22 +1477,7 @@
 		background: #f6121d;
 		transform: translateY(-1px);
 	}
-	@media (max-width: 700px) {
-		.auth-panel {
-			display: none;
-		}
-		.auth-modal {
-			min-height: unset;
-		}
-		.auth-form-panel {
-			padding: 32px 24px 28px;
-		}
-		.auth-brand {
-			top: 20px;
-			left: 20px;
-			font-size: 1.2rem;
-		}
-	}
+
 	main {
 		overflow: hidden;
 	}
@@ -1731,46 +1727,32 @@
 		color: #fff;
 		background: rgba(109, 109, 110, 0.72);
 	}
-	.text-button span,
 	.outline-button span {
 		font-size: 1.4rem;
 		vertical-align: -1px;
 		margin-left: 4px;
 	}
-	.hero-credit {
-		position: absolute;
-		bottom: 58px;
-		right: clamp(24px, 6vw, 92px);
-		font-size: 0.65rem;
-		letter-spacing: 2px;
-		color: rgba(255, 255, 255, 0.62);
-	}
+
 	.content {
 		padding: 48px clamp(24px, 6vw, 92px) 105px;
 		max-width: 1600px;
 		margin: auto;
 	}
-	.section-heading {
-		display: flex;
-		justify-content: space-between;
-		align-items: end;
-		margin-bottom: 23px;
-	}
-	.section-heading h2 {
-		font-size: clamp(1.7rem, 3vw, 2.5rem);
-		letter-spacing: -1.5px;
-		margin: 0;
-	}
-	.text-button {
-		border: 0;
-		background: transparent;
-		color: #f5f4f1;
-		cursor: pointer;
-		font-weight: 600;
-	}
-	.text-button:hover,
 	.footer-links a:hover {
 		color: #e50914;
+	}
+	.poster-btn {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		text-align: left;
+		-webkit-appearance: none;
+		appearance: none;
 	}
 	.poster-row {
 		display: grid;
@@ -1829,27 +1811,7 @@
 	.shelf {
 		margin-top: 70px;
 	}
-	.shelf-title {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-		margin-bottom: 15px;
-	}
-	.shelf-title h2 {
-		margin: 0;
-		font-size: clamp(1.25rem, 2vw, 1.7rem);
-		letter-spacing: -1px;
-	}
-	.shelf-title a {
-		color: #54b9e8;
-		font-size: 0.78rem;
-		text-decoration: none;
-		opacity: 0;
-		transition: opacity 0.2s;
-	}
-	.shelf:hover .shelf-title a {
-		opacity: 1;
-	}
+
 	.six-up {
 		grid-template-columns: repeat(6, 1fr);
 	}
@@ -1919,9 +1881,7 @@
 		font-size: 0.9rem;
 		font-weight: 700;
 	}
-	.picks-heading {
-		margin: 78px 0 24px;
-	}
+
 	.wide-row {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
@@ -1973,14 +1933,7 @@
 		font-size: 1.05rem;
 		color: #a3a3a3;
 	}
-	.footer-question a {
-		color: #a3a3a3;
-		text-decoration: none;
-	}
-	.footer-question a:hover {
-		text-decoration: underline;
-		color: #fff;
-	}
+
 	.footer-links {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -2046,10 +1999,6 @@
 		.hero-copy {
 			font-size: 1rem;
 		}
-		.hero-credit {
-			bottom: 35px;
-			right: 20px;
-		}
 		.content {
 			padding: 42px 20px 68px;
 		}
@@ -2075,9 +2024,6 @@
 		}
 		footer {
 			padding-inline: 28px;
-		}
-		.plan-grid {
-			grid-template-columns: 1fr;
 		}
 	}
 
@@ -2629,123 +2575,22 @@
 		flex-shrink: 0;
 	}
 
-	/* ── Plans Screen ── */
-	.plans-screen {
-		min-height: 100vh;
-		background: #090909;
-		color: #fff;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 40px 20px;
-		position: relative;
+
+	.ott-logo-img {
+		height: 18px;
+		width: auto;
+		object-fit: contain;
 	}
-	.plans-screen .auth-brand {
-		position: absolute;
-		top: 30px;
-		left: 40px;
-		font-size: 1.8rem;
+	.plat-badge-img {
+		height: 14px;
+		width: auto;
+		object-fit: contain;
+		margin-right: 2px;
 	}
-	.plans-content {
-		max-width: 900px;
-		width: 100%;
-		text-align: center;
-		z-index: 1;
-	}
-	.plans-content .eyebrow {
-		color: #e50914;
-		letter-spacing: 2px;
-		font-weight: 700;
-		font-size: 0.75rem;
-		margin-bottom: 15px;
-		text-transform: uppercase;
-	}
-	.plans-content h1 {
-		font-size: clamp(2rem, 4vw, 3.5rem);
-		font-weight: 800;
-		margin: 0 0 10px;
-		letter-spacing: -1px;
-	}
-	.plans-intro {
-		color: #8a90a0;
-		font-size: 1rem;
-		margin-bottom: 50px;
-	}
-	.plan-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 24px;
-		margin-bottom: 40px;
-	}
-	.plan {
-		background: #111318;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 16px;
-		padding: 30px 20px;
-		color: #fff;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-		position: relative;
-		overflow: hidden;
-	}
-	.plan:hover {
-		border-color: rgba(229, 9, 20, 0.5);
-		transform: translateY(-5px);
-		box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
-		background: #16181f;
-	}
-	.plan b {
-		font-size: 1.4rem;
-		font-weight: 800;
-		margin-bottom: 12px;
-	}
-	.plan span {
-		font-size: 1.1rem;
-		color: #e5e5e5;
-		margin-bottom: 8px;
-		font-weight: 600;
-	}
-	.plan small {
-		color: #8a90a0;
-		font-size: 0.85rem;
-	}
-	.plan.featured {
-		background: linear-gradient(145deg, #1f0508 0%, #111318 100%);
-		border-color: rgba(229, 9, 20, 0.3);
-		transform: scale(1.05);
-	}
-	.plan.featured:hover {
-		transform: scale(1.05) translateY(-5px);
-		border-color: #e50914;
-	}
-	.plan.featured i {
-		position: absolute;
-		top: 12px;
-		background: #e50914;
-		color: #fff;
-		font-style: normal;
-		font-size: 0.65rem;
-		font-weight: 800;
-		padding: 4px 10px;
-		border-radius: 20px;
-		letter-spacing: 1px;
-	}
-	.back-button {
-		background: transparent;
-		color: #8a90a0;
-		border: none;
-		font-size: 0.9rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: color 0.2s;
-	}
-	.back-button:hover {
-		color: #fff;
-		text-decoration: underline;
+	.pm-plat-img {
+		height: 20px;
+		width: auto;
+		object-fit: contain;
 	}
 
 	/* ── Mobile Responsiveness ── */
@@ -2799,9 +2644,7 @@
 		.shelf {
 			margin-left: 16px;
 		}
-		.plan-grid {
-			grid-template-columns: 1fr;
-		}
+
 		.footer-links {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 12px;
@@ -2818,7 +2661,19 @@
 			font-size: 1.6rem;
 		}
 		.nav-search-bar {
-			max-width: 180px;
+			position: absolute;
+			left: 10px;
+			right: 10px;
+			top: 12px;
+			max-width: none;
+			height: 52px;
+			z-index: 100;
+			background: rgba(20, 20, 20, 0.95);
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+			border-radius: 12px;
+		}
+		.nav-search-bar input {
+			font-size: 1rem;
 		}
 	}
 </style>
