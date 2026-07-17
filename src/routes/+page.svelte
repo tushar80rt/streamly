@@ -1044,21 +1044,21 @@
 		<footer>
 			<p class="footer-question">Questions? Call 000-800-123-4567</p>
 			<div class="footer-links">
-				<a href="/footer-links">FAQ</a>
-				<a href="/footer-links">Help Centre</a>
-				<a href="/footer-links">Account</a>
-				<a href="/footer-links">Media Centre</a>
-				<a href="/footer-links">Investor Relations</a>
-				<a href="/footer-links">Jobs</a>
-				<a href="/footer-links">Ways to Watch</a>
-				<a href="/footer-links">Terms of Use</a>
-				<a href="/footer-links">Privacy</a>
-				<a href="/footer-links">Cookie Preferences</a>
-				<a href="/footer-links">Corporate Information</a>
-				<a href="/footer-links">Contact Us</a>
-				<a href="/footer-links">Speed Test</a>
-				<a href="/footer-links">Legal Notices</a>
-				<a href="/footer-links">Only on Streamly</a>
+				<a href="#footer">FAQ</a>
+				<a href="#footer">Help Centre</a>
+				<a href="#footer">Account</a>
+				<a href="#footer">Media Centre</a>
+				<a href="#footer">Investor Relations</a>
+				<a href="#footer">Jobs</a>
+				<a href="#footer">Ways to Watch</a>
+				<a href="#footer">Terms of Use</a>
+				<a href="#footer">Privacy</a>
+				<a href="#footer">Cookie Preferences</a>
+				<a href="#footer">Corporate Information</a>
+				<a href="#footer">Contact Us</a>
+				<a href="#footer">Speed Test</a>
+				<a href="#footer">Legal Notices</a>
+				<a href="#footer">Only on Streamly</a>
 			</div>
 			<button class="language footer-language" type="button"
 				>⌄ &nbsp; English</button
@@ -1743,6 +1743,27 @@
 	}
 	.footer-links a:hover {
 		color: #e50914;
+	}
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin: 0 0 15px;
+	}
+	.section-header h2 {
+		font-size: 1.4rem;
+		font-weight: 700;
+		margin: 0;
+	}
+	.view-all {
+		color: #a3a3a3;
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 600;
+		transition: color 0.2s;
+	}
+	.view-all:hover {
+		color: #fff;
 	}
 	.poster-btn {
 		background: transparent;
