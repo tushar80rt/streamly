@@ -2747,4 +2747,78 @@
 		color: #fff;
 		text-decoration: underline;
 	}
+
+	/* ── Mobile Responsiveness ── */
+	@media (max-width: 768px) {
+		nav {
+			padding: 0 16px;
+			gap: 12px;
+		}
+		.browse-links {
+			display: none; /* Hide links to save space */
+		}
+		.brand {
+			font-size: 1.6rem;
+		}
+		.hero-content {
+			margin: 100px 0 0 16px;
+			padding: 0 16px 0 0;
+			max-width: 100%;
+		}
+		.hero-content h1 {
+			font-size: 2.4rem;
+		}
+		.hero-buttons {
+			flex-direction: column;
+			align-items: stretch;
+		}
+		.play-button, .info-button {
+			width: 100%;
+			justify-content: center;
+		}
+		.search-overlay {
+			top: 85px;
+			left: 12px;
+			right: 12px;
+			padding: 16px;
+		}
+		.ott-filters {
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			padding-bottom: 8px;
+		}
+		.ott-pill {
+			flex-shrink: 0;
+		}
+		.section-header {
+			padding: 0 16px;
+		}
+		.poster-row {
+			padding: 0 16px;
+		}
+		.shelf {
+			margin-left: 16px;
+		}
+		.plan-grid {
+			grid-template-columns: 1fr;
+		}
+		.footer-links {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 12px;
+		}
+		.auth-modal {
+			width: 92%;
+		}
+		.auth-form-panel {
+			padding: 32px 24px;
+		}
+		.auth-brand {
+			left: 20px;
+			top: 20px;
+			font-size: 1.6rem;
+		}
+		.nav-search-bar {
+			max-width: 180px;
+		}
+	}
 </style>
