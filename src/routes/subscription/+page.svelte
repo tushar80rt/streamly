@@ -56,6 +56,7 @@
 	</header>
 
 	<main class="content">
+		<a href="/" class="back-link">← Back to Home</a>
 		<div class="step-indicator">STEP <b>2</b> OF <b>3</b></div>
 		<h1 class="page-title">Choose the plan that's right for you</h1>
 		<ul class="benefits">
@@ -159,6 +160,18 @@
 		max-width: 900px;
 		margin: 40px auto 100px;
 		padding: 0 24px;
+	}
+	.back-link {
+		display: inline-block;
+		color: #a3a3a3;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 600;
+		margin-bottom: 24px;
+		transition: color 0.2s;
+	}
+	.back-link:hover {
+		color: #fff;
 	}
 	.step-indicator {
 		font-size: 0.85rem;

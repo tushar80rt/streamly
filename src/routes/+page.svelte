@@ -1753,6 +1753,7 @@
 		width: 100%;
 		cursor: pointer;
 		text-align: left;
+		color: #fff;
 		-webkit-appearance: none;
 		appearance: none;
 	}
