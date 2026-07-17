@@ -2018,9 +2018,7 @@
 		.six-up {
 			grid-template-columns: repeat(2, 1fr);
 		}
-		.wide-card:last-child {
-			display: none;
-		}
+
 		.footer-links {
 			grid-template-columns: repeat(2, 1fr);
 		}
